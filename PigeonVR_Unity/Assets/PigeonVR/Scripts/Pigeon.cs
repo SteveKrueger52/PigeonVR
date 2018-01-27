@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 
-public class Pigeon : MonoBehaviour {
+public class Pigeon : VRTK_InteractableObject {
 	[SerializeField] private GameObject emptyBirb;
 	[SerializeField] private GameObject fullBirb;
 
@@ -19,12 +20,8 @@ public class Pigeon : MonoBehaviour {
 	[SerializeField] private float cooInterval= 5f;
 	private float cooTimer;
 
-
-	// attach letters
-	// detach letters
-
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		cooTimer = Random.Range (0f, cooInterval);
 		if (emptyBirb.gameObject.activeInHierarchy && fullBirb.gameObject.activeInHierarchy)
 			fullBirb.gameObject.SetActive (false);
@@ -61,26 +58,9 @@ public class Pigeon : MonoBehaviour {
 		}
 	}
 
-	public Letter takeLetter() {
-		if (!_laden) {
-			Debug.Log ("Birb doesn't have any items");
-			return null;
-		} else {
-			Letter l = gameObject.GetComponentInChildren<Letter> ();
-			l.transform.SetParent (StateManager.instance.transform);
-			setBirbLaden (false);
-			l.gameObject.SetActive (true);
-			source.PlayOneShot (attachObjectSound);
-			return l;
-		}
-	}
-
-
-
-
 	// onTriggerExit of the Cylindrical Collider
 	public bool birbHitCorrectTarget() {
-		return false; //TODO
+			return false;
 	}
 
 }

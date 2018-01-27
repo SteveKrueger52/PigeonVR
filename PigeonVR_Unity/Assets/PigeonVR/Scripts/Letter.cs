@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Letter : MonoBehaviour
-{
+public class Letter : MonoBehaviour {
 	private GameObject[] models;
 	private Info.Location locationID;
     private string displayDestination;
     private Text displayText;
 
+	private Pigeon birbTouched;
+
     // Use this for initialization
-    void Start()
+    void Awake()
     {
 		models = new GameObject[transform.childCount];
 		for (int i = 0; i < transform.childCount; i++) {
@@ -34,12 +35,18 @@ public class Letter : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Start();
+			Awake();
             displayText.text = displayDestination;
             Debug.Log(locationID);
 
         }
     }
+
+	void OnCollisionEnter(Collision col) {
+		birbTouched = col.gameObject.GetComponent<Pigeon> ();
+		if (birbTouched != null)
+			birbTouched.addLetter (this);
+	}
 
 	public Info.Location getLocation() {
 		return locationID;
