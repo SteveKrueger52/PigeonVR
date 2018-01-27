@@ -4,8 +4,8 @@ using UnityEngine;
 
 
 public class Pigeon : MonoBehaviour {
-	[SerializeField] private MeshRenderer emptyBirb;
-	[SerializeField] private MeshRenderer fullBirb;
+	[SerializeField] private GameObject emptyBirb;
+	[SerializeField] private GameObject fullBirb;
 
 	private bool _laden = false;
 	private Info.Location letterLocation;
@@ -30,7 +30,7 @@ public class Pigeon : MonoBehaviour {
 			fullBirb.gameObject.SetActive (false);
 	}
 
-	void setBirbStatus (bool laden) {
+	void setBirbLaden (bool laden) {
 		_laden = laden;
 		emptyBirb.gameObject.SetActive (!laden);
 		fullBirb.gameObject.SetActive (laden);
@@ -48,4 +48,39 @@ public class Pigeon : MonoBehaviour {
 	public void setLocation(Info.Location loc) {
 		letterLocation = loc;
 	}
+
+	public void addLetter(Letter l) {
+		if (_laden) {
+			Debug.Log ("Birb is carrying too much");
+		} else {
+			letterLocation = (Info.Location) l.getLocation ();
+			l.transform.SetParent (gameObject.transform);
+			setBirbLaden (true);
+			l.gameObject.SetActive (false);
+			source.PlayOneShot (attachObjectSound);
+		}
+	}
+
+	public Letter takeLetter() {
+		if (!_laden) {
+			Debug.Log ("Birb doesn't have any items");
+			return null;
+		} else {
+			Letter l = gameObject.GetComponentInChildren<Letter> ();
+			l.transform.SetParent (StateManager.instance.transform);
+			setBirbLaden (false);
+			l.gameObject.SetActive (true);
+			source.PlayOneShot (attachObjectSound);
+			return l;
+		}
+	}
+
+
+
+
+	// onTriggerExit of the Cylindrical Collider
+	public bool birbHitCorrectTarget() {
+		return false; //TODO
+	}
+
 }

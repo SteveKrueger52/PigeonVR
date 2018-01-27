@@ -7,7 +7,7 @@ public class Letter : MonoBehaviour
 {
 
     [SerializeField]
-    Info.Location letterID;
+	Info.Location locationID;
     //String text of where the letter needs to go
     [SerializeField]
     string displayDestination;
@@ -17,8 +17,8 @@ public class Letter : MonoBehaviour
     void Start()
     {
         displayText = GetComponentInChildren<Text>();
-        letterID = Info.getRandomLocation();
-        setStartData(letterID);
+        locationID = Info.getRandomLocation();
+        setStartData(locationID);
     }
 
     void setStartData(Info.Location id)
@@ -33,8 +33,12 @@ public class Letter : MonoBehaviour
         {
             Start();
             displayText.text = displayDestination;
-            Debug.Log(letterID);
+            Debug.Log(locationID);
 
         }
     }
+
+	public Info.Location getLocation() {
+		return locationID;
+	}
 }
