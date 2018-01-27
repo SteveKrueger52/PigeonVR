@@ -12,40 +12,18 @@ public class Info : MonoBehaviour{
     [System.Serializable]
     public struct LocationDataWrapper {
         public LocationData[] locations;
-
-        public override string ToString() {
-            string res = "locations: [";
-            foreach(var l in locations) {
-                res += "{" + l.ToString() + "}";
-            }
-            res += "]";
-            return res;
-        }
     }
 
     [System.Serializable]
     public struct LocationData {
         public string id;
         public LetterData[] letters;
-
-        public override string ToString() {
-            string res = "id: " + id + ", letters: [";
-            foreach(var letter in letters) {
-                res += "{" + letter.ToString() + "}";
-            }
-            res += "]";
-            return res;
-        }
     }
 
     [System.Serializable]
     public struct LetterData {
         public string text;
         public int weight;
-
-        public override string ToString() {
-            return "text: " + text + ", weight: " + weight;
-        }
     }
 
     // Singleton Code
@@ -75,11 +53,9 @@ public class Info : MonoBehaviour{
             foreach (var loc in locationData.locations) {
                 _senders.Add((Location) Enum.Parse(typeof(Location), loc.id), loc.letters);
             }
-            Debug.Log("HI");
         }
         else
         {
-            File.WriteAllText(filepath, "{\"message\":\"HERE I AM\"}");
             Debug.LogError("Cannot load game data!");
         }
     }

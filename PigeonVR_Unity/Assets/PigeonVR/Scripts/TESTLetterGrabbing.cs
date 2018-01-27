@@ -18,8 +18,5 @@ public class TESTLetterGrabbing : MonoBehaviour {
         {
             display.text = Info.getRandomSender(Info.Location.DESERT).text;
         }
-        {
-
-        }
 	}
 }
