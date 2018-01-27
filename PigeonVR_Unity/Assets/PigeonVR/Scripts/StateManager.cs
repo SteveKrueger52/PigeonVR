@@ -68,9 +68,9 @@ public class StateManager : MonoBehaviour
             else
             {
                 lives -= 1;
-                onStateUpdate(score, lives);
             }
         }
+        onStateUpdate(score, lives);
     }
 
 
