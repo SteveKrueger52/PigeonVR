@@ -1,9 +1,27 @@
 {
     "locations": [{
-        "id": "city",
+        "id": "TOWN",
         "letters": [{
             "text": "To Cleopatra",
             "weight": 1
-        }]
+        }],
+        "id": "FOREST",
+        "letters": [{
+          }],
+        "id": "DESERT",
+        "letters": [{
+          }],
+        "id": "SNOW",
+        "letters": [{
+          }],
+        "id": "VOLCANO",
+        "letters": [{
+          }],
+        "id": "WASTELAND",
+        "letters": [{
+          }],
+        "id": "CITY",
+        "letters": [{
+          }],
     }]
 }
