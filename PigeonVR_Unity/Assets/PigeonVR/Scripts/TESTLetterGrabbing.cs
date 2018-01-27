@@ -16,7 +16,7 @@ public class TESTLetterGrabbing : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.Space))
         {
-            display.text = Info.getRandomSender(Info.Location.DESERT).text;
+            display.text = Info.getRandomSender(Info.Location.DESERT);
         }
 	}
 }
