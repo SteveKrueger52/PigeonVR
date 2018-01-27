@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1ee4d2abf0295ee41b269b44bf327db0
-timeCreated: 1517071267
+guid: 2d21f258aa5135d4d9db9de1f021a5be
+timeCreated: 1517092743
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Morris Roman Alternate
+  fontName: NeuGothic
   fontNames:
-  - Morris Roman Alternate
+  - NeuGothic
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
