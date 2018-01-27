@@ -4,3 +4,4 @@
 
 ##### Put your names here when you can
 * Steve Krueger (Programmer)
+* Caroline Pasyanos (Programmer and Level Designer)
