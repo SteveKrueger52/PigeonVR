@@ -1,0 +1,58 @@
+{
+    "locations": [
+        {
+            "id": "TOWN",
+            "letters": [
+            ]
+        },
+        {
+            "id": "DESERT",
+            "letters": [
+                {
+                    "text": "To Her Majesty Cleopatra",
+                    "weight": 1
+                },
+                {
+                    "text": "Sandy Sand Land",
+                    "weight": 1
+                },
+                {
+                    "text": "The Land with the Sand",
+                    "weight": 1
+                },
+                {
+                    "text": "Camels Incorporated",
+                    "weight": 1
+                },
+                {
+                    "text": "Where's my Water?",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "id": "SNOW",
+            "letters": [
+                {}
+            ]
+        },
+        {
+            "id": "VOLCANO",
+            "letters": [
+                {}
+            ]
+        },
+        {
+            "id": "WASTELAND",
+            "letters": [
+                {}
+            ]
+        },
+        {
+            "id": "CITY",
+            "letters": [
+                {}
+            ]
+        }
+    ]
+}
