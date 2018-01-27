@@ -25,6 +25,9 @@ public class StateManager : MonoBehaviour
         }
     }
 
+    public delegate void StateChangeAction(int score, int lives);
+    public event StateChangeAction onStateUpdate;
+
     void Awake()
     {
         // setup of Singleton
@@ -49,4 +52,31 @@ public class StateManager : MonoBehaviour
     {
         score += i;
     }
+
+    public void updateAfterThrow(bool success)
+    {
+        if (success)
+        {
+            updateScore(1);
+        }
+        else
+        {
+            if (lives == 1)
+            {
+                gameOver();
+            }
+            else
+            {
+                lives -= 1;
+                onStateUpdate(score, lives);
+            }
+        }
+    }
+
+
+    public void gameOver()
+    {
+
+    }
+
 }
