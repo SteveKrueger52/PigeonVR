@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class Letter : MonoBehaviour
 {
-
-    [SerializeField]
-	Info.Location locationID;
-    //String text of where the letter needs to go
-    [SerializeField]
-    string displayDestination;
-    Text displayText;
+	private GameObject[] models;
+	private Info.Location locationID;
+    private string displayDestination;
+    private Text displayText;
 
     // Use this for initialization
     void Start()
     {
+		models = new GameObject[transform.childCount];
+		for (int i = 0; i < transform.childCount; i++) {
+			models [i] = transform.GetChild (i).gameObject;
+			models [i].SetActive (false);
+		}
+		models [Random.Range (0, models.Length - 1)].SetActive (true);
         displayText = GetComponentInChildren<Text>();
         locationID = Info.getRandomLocation();
         setStartData(locationID);
