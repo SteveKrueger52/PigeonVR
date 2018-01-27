@@ -13,10 +13,10 @@ public class Score : MonoBehaviour {
 	}
 	
 	void Update () {
-		display.text = "Score: " + GameManager.Score.ToString();
+		display.text = "Score: " + StateManager.Instance.Score.ToString();
 		if (Input.GetKeyUp(KeyCode.Space))
         {
-            GameManager.updateScore(1);
+            StateManager.Instance.updateScore(1);
         }
 	}
 }

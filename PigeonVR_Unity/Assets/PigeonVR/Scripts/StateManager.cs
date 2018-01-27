@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class StateManager : MonoBehaviour
 {
 
-    public static GameManager instance = null;
-    private static int score;
+    public static StateManager instance = null;
+    [SerializeField]
     private int lives;
-
-    public static int Score
+    public int Lives
+    {
+        get
+        {
+            return Lives;
+        }
+    }
+    [SerializeField]
+    private int score;
+    public int Score
     {
         get
         {
@@ -26,21 +34,18 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
 
-        score = 0;
-        lives = 3;
-
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public static GameManager Instance
+    public static StateManager Instance
     {
         get
         {
-            return instance ?? (instance = new GameObject("GameManager").AddComponent<GameManager>());
+            return instance ?? (instance = new GameObject("GameManager").AddComponent<StateManager>());
         }
     }
 
-    public static void updateScore(int i)
+    public void updateScore(int i)
     {
         score += i;
     }
