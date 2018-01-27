@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Info : MonoBehaviour{
     // Location Enumeration
-    public enum Location { TOWN, FOREST, DESERT, SNOW, VOLCANO, WASTELAND, CITY, MOON}
+    public enum Location { TOWN, FOREST, DESERT, SNOW, VOLCANO, WASTELAND, CITY}
 
     [System.Serializable]
     public struct LocationDataWrapper {
@@ -75,12 +75,18 @@ public class Info : MonoBehaviour{
         return new LetterData[]{};
     }
 
+    public static Location getRandomLocation()
+    {
+        var enums = Enum.GetValues(typeof(Location));
+        return (Location)Random.Range(0, enums.Length - 1);
+    }
+
     // Gets a random sender
-    public static LetterData getRandomSender (Location loc) {
-        LetterData[] output;
-        if (instance._senders.TryGetValue(loc, out output)) {
-            return output [(int) Random.Range (0, output.GetLength (0) - 1)];
+    public static string getRandomSender (Location loc) {
+        LetterData[] letters;
+        if (instance._senders.TryGetValue(loc, out letters)) {
+            return letters[(int)Random.Range(0, letters.GetLength(0) - 1)].text; ;
         }
-        return new LetterData();
+        return "";
     }
 }
