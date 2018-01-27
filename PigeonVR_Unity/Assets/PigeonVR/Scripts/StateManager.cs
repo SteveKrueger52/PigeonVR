@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
 
+	public Transform birbCoop;
     public static StateManager instance = null;
     [SerializeField]
     private int lives;

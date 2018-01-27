@@ -4,8 +4,8 @@ using UnityEngine;
 
 
 public class Pigeon : MonoBehaviour {
-	[SerializeField] private MeshRenderer emptyBirb;
-	[SerializeField] private MeshRenderer fullBirb;
+	[SerializeField] private GameObject emptyBirb;
+	[SerializeField] private GameObject fullBirb;
 
 	private bool _laden = false;
 	private Info.Location letterLocation;
@@ -19,10 +19,6 @@ public class Pigeon : MonoBehaviour {
 	[SerializeField] private float cooInterval= 5f;
 	private float cooTimer;
 
-
-	// attach letters
-	// detach letters
-
 	// Use this for initialization
 	void Start () {
 		cooTimer = Random.Range (0f, cooInterval);
@@ -32,8 +28,8 @@ public class Pigeon : MonoBehaviour {
 
 	void setBirbStatus (bool laden) {
 		_laden = laden;
-		emptyBirb.gameObject.SetActive (!laden);
-		fullBirb.gameObject.SetActive (laden);
+		emptyBirb.SetActive (!laden);
+		fullBirb.SetActive (laden);
 	}
 
 	// Update is called once per frame
@@ -45,7 +41,29 @@ public class Pigeon : MonoBehaviour {
 		}
 	}
 
-	public void setLocation(Info.Location loc) {
-		letterLocation = loc;
+	public void attachLetter(Letter letter) {
+		if (!_laden) {
+			letter.transform.SetParent (gameObject.transform);
+			letterLocation = letter.getLocation ();
+			setBirbStatus (true);
+			letter.gameObject.SetActive (false);
+			source.PlayOneShot (attachObjectSound);
+		} else {
+			Debug.Log ("Birb is carrying too much!");
+		}
+	}
+
+	public Letter detachLetter() {
+		if (_laden) {
+			Letter letter = GetComponentInChildren<Letter> ();
+			letter.gameObject.SetActive (true);
+			letter.transform.SetParent (StateManager.instance.birbCoop);
+			setBirbStatus (false);
+			source.PlayOneShot (attachObjectSound);
+			return letter;
+		} else {
+			Debug.Log ("Birb has no Mail");
+			return null;
+		}
 	}
 }

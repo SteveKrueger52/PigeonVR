@@ -5,21 +5,37 @@ using UnityEngine;
 
 public class Letter : MonoBehaviour
 {
-
-    [SerializeField]
-    Info.Location letterID;
+	private GameObject[] modelTypes;
+	private int modelIndex = -1;
+	private GameObject activeModel;
+    private Info.Location letterID;
     //String text of where the letter needs to go
     [SerializeField]
     string displayDestination;
     Text displayText;
 
+	void Awake() {
+		Init ();
+	}
+
     // Use this for initialization
-    void Start()
+    void Init()
     {
-        displayText = GetComponentInChildren<Text>();
-        letterID = Info.getRandomLocation();
-        setStartData(letterID);
-    }
+		Collider[] colliders = GetComponentsInChildren<Collider> ();
+		modelTypes = new GameObject[colliders.Length];
+		for (int i = 0; i < colliders.Length; i++)
+			modelTypes [i] = colliders [i].gameObject;
+		if (modelIndex < 0 || modelIndex > modelTypes.Length) {
+			foreach (GameObject go in modelTypes)
+				go.SetActive (false);
+			activeModel = modelTypes [Random.Range (0, modelTypes.Length)];
+			activeModel.SetActive (true);
+		}
+
+		displayText = GetComponentInChildren<Text>();
+		letterID = (Info.Location) Random.Range (0, 6);
+		setStartData(letterID);
+	}
 
     void setStartData(Info.Location id)
     {
@@ -31,10 +47,14 @@ public class Letter : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Start();
+			Init ();
             displayText.text = displayDestination;
             Debug.Log(letterID);
 
         }
     }
+
+	public Info.Location getLocation() {
+		return letterID;
+	}
 }
