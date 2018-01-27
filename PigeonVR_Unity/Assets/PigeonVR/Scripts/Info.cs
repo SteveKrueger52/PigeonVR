@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Enum = System.Enum;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +51,7 @@ public class Info : MonoBehaviour{
     // Singleton Code
     public static Info instance = null;
     private static string gameDataFileName = "data.json";
-    private Dictionary <Location, string[]> _senders = new Dictionary<Location, string[]> ();
+    private Dictionary <Location, LetterData[]> _senders = new Dictionary<Location, LetterData[]> ();
 
     private void Awake() {
         // setup of Singleton
@@ -71,7 +72,9 @@ public class Info : MonoBehaviour{
             string dataAsJson = File.ReadAllText(filepath); 
             // Pass the json to JsonUtility, and tell it to create a GameData object from it
             LocationDataWrapper locationData = JsonUtility.FromJson<LocationDataWrapper>(dataAsJson);
-            Debug.Log(locationData);
+            foreach (var loc in locationData.locations) {
+                _senders.Add((Location) Enum.Parse(typeof(Location), loc.id), loc.letters);
+            }
         }
         else
         {
@@ -88,19 +91,19 @@ public class Info : MonoBehaviour{
     }
 
     // Gets a list of all senders
-    public static string[] getAllSenders (Location loc) {
-        string[] output;
+    public static LetterData[] getAllSenders (Location loc) {
+        LetterData[] output;
         if (instance._senders.TryGetValue(loc, out output))
             return output;
-        return new string[]{};
+        return new LetterData[]{};
     }
 
     // Gets a random sender
-    public static string getRandomSender (Location loc) {
-        string[] output;
+    public static LetterData getRandomSender (Location loc) {
+        LetterData[] output;
         if (instance._senders.TryGetValue(loc, out output)) {
             return output [(int) Random.Range (0, output.GetLength (0) - 1)];
         }
-        return "Nobody In Particular";
+        return new LetterData();
     }
 }

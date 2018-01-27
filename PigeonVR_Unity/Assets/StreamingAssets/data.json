@@ -4,21 +4,21 @@
         "letters": [{
             "text": "To Cleopatra",
             "weight": 1
-        }]},{
-            "id": "DESERT",
-            "letters": [{
-        }]},{
+        }]
+    }, {
+        "id": "DESERT",
+        "letters": [{}]
+    }, {
         "id": "SNOW",
-            "letters": [{
-        }]},{
+        "letters": [{}]
+    }, {
         "id": "VOLCANO",
-            "letters": [{
-        }]},{
+        "letters": [{}]
+    }, {
         "id": "WASTELAND",
-            "letters": [{
-        }]},{
+        "letters": [{}]
+    }, {
         "id": "CITY",
-            "letters": [{
-        }]}
-    ]
+        "letters": [{}]
+    }]
 }
