@@ -50,7 +50,6 @@ public class ScoreSetter : MonoBehaviour {
             break;
          case 0:
             life1.gameObject.SetActive(false);
-            //Debug.Log("Game Over");
             break;
          default: // lives = 3, do nothing
             break;
