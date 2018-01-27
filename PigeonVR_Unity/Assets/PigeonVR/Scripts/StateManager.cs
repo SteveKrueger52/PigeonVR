@@ -24,6 +24,27 @@ public class StateManager : MonoBehaviour
             return score;
         }
     }
+    [SerializeField]
+    private float pigeonTimeout;
+    public float PigeonTimeout
+    {
+        get
+        {
+            return pigeonTimeout;
+        }
+    }
+    [SerializeField]
+    private float letterTimeout;
+    public float LetterTimeout
+    {
+        get
+        {
+            return letterTimeout;
+        }
+    }
+
+    public GameObject pigeonGenerator;
+    public GameObject letterGenerator;
 
     public delegate void StateChangeAction(int score, int lives);
     public event StateChangeAction onStateUpdate;
@@ -36,6 +57,10 @@ public class StateManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         instance = this;
+
+        pigeonGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(pigeonTimeout);
+        letterGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(letterTimeout);
+
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -68,9 +93,9 @@ public class StateManager : MonoBehaviour
             else
             {
                 lives -= 1;
-                onStateUpdate(score, lives);
             }
         }
+        onStateUpdate(score, lives);
     }
 
 

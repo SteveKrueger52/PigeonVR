@@ -16,25 +16,26 @@ public class Letter : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        displayText = GetComponentInChildren<Text>();
         letterID = Info.getRandomLocation();
+
+        Canvas canvas = this.gameObject.AddComponent<Canvas>();
+        canvas.renderMode = RenderMode.WorldSpace;
+        GameObject go = new GameObject("LetterText");
+        go.transform.SetParent(canvas.transform);
+        displayText = go.AddComponent<Text>();
+
+        Font morris = Resources.Load<Font>("MorrisRoman-Black");
+        displayText.font = morris;
+
+        displayText.transform.localScale = new Vector3(0.05f, 0.05f, 1);
+        displayText.transform.localPosition = new Vector3(0, 0, 0);
+        displayText.alignment = TextAnchor.UpperCenter;
         setStartData(letterID);
     }
 
     void setStartData(Info.Location id)
     {
         this.displayDestination = Info.getRandomSender(id);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Start();
-            displayText.text = displayDestination;
-            Debug.Log(letterID);
-
-        }
+        displayText.text = displayDestination;
     }
 }
