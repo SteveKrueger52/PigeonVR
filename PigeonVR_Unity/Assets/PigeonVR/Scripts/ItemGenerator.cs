@@ -8,8 +8,7 @@ public class ItemGenerator : MonoBehaviour
     [SerializeField]
     GameObject[] spawnpoints;
 
-    [SerializeField]
-    float spawnDelay;
+    private float spawnDelay;
 
     [SerializeField]
     GameObject[] ObjectsToSpawn;
@@ -33,5 +32,9 @@ public class ItemGenerator : MonoBehaviour
 
             yield return new WaitForSeconds(spawnDelay);
         }
+    }
+
+    public void SetSpawnDelay(float time) {
+        spawnDelay = time;
     }
 }
