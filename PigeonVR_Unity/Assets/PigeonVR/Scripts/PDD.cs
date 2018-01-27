@@ -116,6 +116,7 @@ public class PDD : MonoBehaviour
         else
         {
             zone = "nothing_here";
+            //lose lives
         }
                 Debug.Log(pigeon_direction);
     }
