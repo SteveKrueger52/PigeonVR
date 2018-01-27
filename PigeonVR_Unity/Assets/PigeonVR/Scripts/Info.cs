@@ -53,18 +53,18 @@ public class Info : MonoBehaviour{
     private static string gameDataFileName = "data.json";
     private Dictionary <Location, LetterData[]> _senders = new Dictionary<Location, LetterData[]> ();
 
-    private void Awake() {
+    void Awake() {
         // setup of Singleton
         if (instance != null && instance != this) 
         {
             Destroy(this.gameObject);
         }
         instance = this;
-        Init ();
-        DontDestroyOnLoad( this.gameObject );
+        Init();
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    private void Init() {
+    void Init() {
         // Load data from JSON file - not implemented yet
         string filepath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
         if (File.Exists(filepath)) {
@@ -75,6 +75,7 @@ public class Info : MonoBehaviour{
             foreach (var loc in locationData.locations) {
                 _senders.Add((Location) Enum.Parse(typeof(Location), loc.id), loc.letters);
             }
+            Debug.Log("HI");
         }
         else
         {
