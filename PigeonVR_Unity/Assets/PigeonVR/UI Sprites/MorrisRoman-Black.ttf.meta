@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1b751cb3829ec6c45b56e56142c3edd8
-timeCreated: 1517067897
+guid: 3f1bf4da815126e49a3abfba006bc1f5
+timeCreated: 1517071267
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Ballade
+  fontName: Morris Roman
   fontNames:
-  - Ballade
+  - Morris Roman
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

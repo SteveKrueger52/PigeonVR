@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: cf743c889e27b9f46904a19731c9d621
-timeCreated: 1517067897
+guid: 1ee4d2abf0295ee41b269b44bf327db0
+timeCreated: 1517071267
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Ballade Shadow
+  fontName: Morris Roman Alternate
   fontNames:
-  - Ballade Shadow
+  - Morris Roman Alternate
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
