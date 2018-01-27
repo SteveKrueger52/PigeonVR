@@ -1,0 +1,9 @@
+{
+    "locations": [{
+        "id": "city",
+        "letters": [{
+            "text": "To Cleopatra",
+            "weight": 1
+        }]
+    }]
+}
