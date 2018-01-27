@@ -3,6 +3,19 @@
         {
             "id": "TOWN",
             "letters": [
+                {
+                    "text": "Tiny Village",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "id": "FOREST",
+            "letters": [
+                {
+                    "text": "Trees?",
+                    "weight": 1
+                }
             ]
         },
         {
@@ -33,25 +46,37 @@
         {
             "id": "SNOW",
             "letters": [
-                {}
+                {
+                    "text": "Snowflake Central",
+                    "weight": 1
+                }
             ]
         },
         {
             "id": "VOLCANO",
             "letters": [
-                {}
+                {
+                    "text": "Too Hot to Stop",
+                    "weight": 1
+                }
             ]
         },
         {
             "id": "WASTELAND",
             "letters": [
-                {}
+                {
+                    "text": "There's nothing here?",
+                    "weight": 1
+                }
             ]
         },
         {
             "id": "CITY",
             "letters": [
-                {}
+                {
+                    "text": "New York, New York",
+                    "weight": 1
+                }
             ]
         }
     ]
