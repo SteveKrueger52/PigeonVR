@@ -78,14 +78,14 @@ public class Info : MonoBehaviour{
     public static Location getRandomLocation()
     {
         var enums = Enum.GetValues(typeof(Location));
-        return (Location)Random.Range(0, enums.Length - 1);
+        return (Location)Random.Range(0, enums.Length);
     }
 
     // Gets a random sender
     public static string getRandomSender (Location loc) {
         LetterData[] letters;
         if (instance._senders.TryGetValue(loc, out letters)) {
-            return letters[(int)Random.Range(0, letters.GetLength(0) - 1)].text; ;
+            return letters[(int)Random.Range(0, letters.GetLength(0))].text; ;
         }
         return "";
     }
