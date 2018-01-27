@@ -27,11 +27,11 @@ public class LetterGenerator : MonoBehaviour {
     public IEnumerator spawnLetters()
     {
         while (true) {
-            int spawnloc = (int)Random.Range(0, spawnpoints.Length - 1);
+            int spawnloc = (int)Random.Range(0, spawnpoints.Length);
 
-            int letterToSpawn = (int)Random.Range(0, LetterTypes.Length - 1);
+            int letterToSpawn = (int)Random.Range(0, LetterTypes.Length);
 
-            Instantiate(LetterTypes[letterToSpawn]);
+            Instantiate(LetterTypes[letterToSpawn], spawnpoints[spawnloc].transform);
 
             yield return new WaitForSeconds(spawnDelay);
         }
