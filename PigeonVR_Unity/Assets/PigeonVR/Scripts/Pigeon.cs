@@ -7,6 +7,8 @@ using VRTK;
 public class Pigeon : VRTK_InteractableObject {
 	[SerializeField] private GameObject emptyBirb;
 	[SerializeField] private GameObject fullBirb;
+	[SerializeField] private float despawnTime = 2f;
+	private bool inSweetSpot = true;
 
 	private bool _laden = false;
 	private Info.Location letterLocation;
@@ -58,9 +60,48 @@ public class Pigeon : VRTK_InteractableObject {
 		}
 	}
 
-	// onTriggerExit of the Cylindrical Collider
-	public bool birbHitCorrectTarget() {
-			return false;
+	void OnCollisionExit(Collision col) {
+		if (col.gameObject.CompareTag ("SweetSpot")) {
+			inSweetSpot = false;
+			return;
+		}
+		if (col.gameObject.CompareTag ("Killplane")) {
+			StartCoroutine ("GuessIllDie");
+			StateManager.instance.updateAfterThrow (birbHitCorrectTarget ());
+		}
 	}
 
+	private void GuessIllDie() {
+		yield return new WaitForSeconds (despawnTime);
+		Destroy (this);
+	}
+
+	// onTriggerExit of the Cylindrical Collider
+	public bool birbHitCorrectTarget() {
+		if (!inSweetSpot)
+			return false;
+		float wedge = 51.428f; //degrees
+		int wedgeIndex = 3;
+		// ANGULAR MATH HERE
+		Vector3 birbPos = transform.position;
+		Vector2 flatVector = new Vector2 (birbPos.x, birbPos.z).normalized;
+		if (flatVector.x != 0f) {
+			float angleFromForward = 
+				// Sin is Vertical over Hypotenuse
+				// Hypotenuse is 			sqrt 			(vertical ^2) 		   + 			(horiz^2)
+				Mathf.Asin(flatVector.x/(Mathf.Sqrt ((flatVector.x * flatVector.x) + (flatVector.y * flatVector.y))));
+			bool negative = (angleFromForward < 0f);
+			angleFromForward = Mathf.Abs (Mathf.Rad2Deg * angleFromForward) + (wedge / 2);
+			int offset = (int) Mathf.Floor (angleFromForward / wedge);
+			wedgeIndex = negative ? wedgeIndex - offset : wedgeIndex + offset;
+
+			// FINAL CHECK
+			return letterLocation.Equals((Info.Location) wedgeIndex);
+
+			/* THE WAY THIS WORKS IN TERMS OF PLACEMENT: 
+			 * LOCATION 3 (SNOW) IS DIRECTLY FORWARD
+			 * LOCATION INDICES COUNT DOWN TO THE RIGHT (2: DESERT, 1: FOREST, 0: TOWN)
+			 * LOCATION INDICES COUNT UP TO THE LEFT (4: VOLCANO, 5: WASTELAND, 6: CITY)
+			 */
+	}
 }
