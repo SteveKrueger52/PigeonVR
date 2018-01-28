@@ -475,7 +475,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -580,10 +580,10 @@ MonoBehaviour:
   _laden: 0
   letterLocation: 0
   source: {fileID: 82993295521927222}
-  cooSound: {fileID: 0}
+  cooSound: {fileID: 8300000, guid: 8a87f8514eb28724a9e85b062e8ae4c3, type: 3}
   attachObjectSound: {fileID: 0}
-  grabSound: {fileID: 0}
-  throwSound: {fileID: 0}
+  grabSound: {fileID: 8300000, guid: ee81c4b644f80d548aa81f8e45319ab0, type: 3}
+  throwSound: {fileID: 8300000, guid: ee81c4b644f80d548aa81f8e45319ab0, type: 3}
   cooInterval: 5
 --- !u!114 &114631356699890866
 MonoBehaviour:
