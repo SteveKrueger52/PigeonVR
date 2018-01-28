@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645eef60065754f49a243f827ba5f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decayTime: 10
+  decayTime: 20
 --- !u!114 &114735538477471340
 MonoBehaviour:
   m_ObjectHideFlags: 1
