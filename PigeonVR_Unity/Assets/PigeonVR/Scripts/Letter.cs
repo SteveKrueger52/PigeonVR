@@ -25,6 +25,9 @@ public class Letter : MonoBehaviour
             models[i].SetActive(false);
         }
         models[Random.Range(0, models.Length - 1)].SetActive(true);
+
+		GetComponent<Rigidbody> ().velocity = new Vector3();
+
         displayText = GetComponentInChildren<Text>();
         locationID = Info.getRandomLocation();
 

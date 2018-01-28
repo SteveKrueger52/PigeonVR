@@ -22,13 +22,14 @@ public class ItemGenerator : MonoBehaviour
 
     public IEnumerator spawnItems()
     {
+		GameObject itemSpawned;
         while (true)
         {
             int spawnloc = (int)Random.Range(0, spawnpoints.Length);
 
             int letterToSpawn = (int)Random.Range(0, ObjectsToSpawn.Length);
 
-            Instantiate(ObjectsToSpawn[letterToSpawn], spawnpoints[spawnloc].transform);
+			itemSpawned = Instantiate(ObjectsToSpawn[letterToSpawn], spawnpoints[spawnloc].transform);
 
             yield return new WaitForSeconds(spawnDelay);
         }

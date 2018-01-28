@@ -27,8 +27,11 @@ public class Pigeon : VRTK_InteractableObject
     void Awake()
     {
         cooTimer = Random.Range(0f, cooInterval);
-        if (emptyBirb.gameObject.activeInHierarchy && fullBirb.gameObject.activeInHierarchy)
-            fullBirb.gameObject.SetActive(false);
+		if (emptyBirb.gameObject.activeInHierarchy && fullBirb.gameObject.activeInHierarchy) {
+			fullBirb.gameObject.SetActive (false);
+
+			GetComponent<Rigidbody> ().velocity = new Vector3 ();
+		}
         StartCoroutine("EveryoneDiesEventually");
     }
 
