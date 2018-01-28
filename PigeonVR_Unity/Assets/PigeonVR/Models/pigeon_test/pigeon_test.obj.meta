@@ -13,6 +13,7 @@ ModelImporter:
     2300000: MourningDoves:MourningDoves_Mesh
     3300000: MourningDoves:MourningDoves_Mesh
     4300000: MourningDoves:MourningDoves_Mesh
+    6400000: MourningDoves:MourningDoves_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -49,7 +50,7 @@ ModelImporter:
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
-    importLights: 1
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

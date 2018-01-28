@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
@@ -24,6 +25,27 @@ public class StateManager : MonoBehaviour
             return score;
         }
     }
+    [SerializeField]
+    private float pigeonTimeout;
+    public float PigeonTimeout
+    {
+        get
+        {
+            return pigeonTimeout;
+        }
+    }
+    [SerializeField]
+    private float letterTimeout;
+    public float LetterTimeout
+    {
+        get
+        {
+            return letterTimeout;
+        }
+    }
+
+    public GameObject pigeonGenerator;
+    public GameObject letterGenerator;
 
     public delegate void StateChangeAction(int score, int lives);
     public event StateChangeAction onStateUpdate;
@@ -36,6 +58,10 @@ public class StateManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         instance = this;
+
+        pigeonGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(pigeonTimeout);
+        letterGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(letterTimeout);
+
 
         DontDestroyOnLoad(this.gameObject);
     }
@@ -51,6 +77,13 @@ public class StateManager : MonoBehaviour
     public void updateScore(int i)
     {
         score += i;
+        if (score % 4 == 0)
+        {
+            pigeonTimeout *= .9f;
+            letterTimeout *= .9f;
+            pigeonGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(pigeonTimeout);
+            letterGenerator.GetComponent<ItemGenerator>().SetSpawnDelay(letterTimeout);
+        }
     }
 
     public void updateAfterThrow(bool success)
@@ -76,7 +109,7 @@ public class StateManager : MonoBehaviour
 
     public void gameOver()
     {
-
+        SceneManager.LoadScene("EndScene");
     }
 
 }

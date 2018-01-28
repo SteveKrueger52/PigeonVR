@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 
-public class Pigeon : MonoBehaviour {
-	[SerializeField] private MeshRenderer emptyBirb;
-	[SerializeField] private MeshRenderer fullBirb;
+public class Pigeon : VRTK_InteractableObject {
+	[SerializeField] private GameObject emptyBirb;
+	[SerializeField] private GameObject fullBirb;
 
 	private bool _laden = false;
 	private Info.Location letterLocation;
@@ -19,18 +20,14 @@ public class Pigeon : MonoBehaviour {
 	[SerializeField] private float cooInterval= 5f;
 	private float cooTimer;
 
-
-	// attach letters
-	// detach letters
-
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		cooTimer = Random.Range (0f, cooInterval);
 		if (emptyBirb.gameObject.activeInHierarchy && fullBirb.gameObject.activeInHierarchy)
 			fullBirb.gameObject.SetActive (false);
 	}
 
-	void setBirbStatus (bool laden) {
+	void setBirbLaden (bool laden) {
 		_laden = laden;
 		emptyBirb.gameObject.SetActive (!laden);
 		fullBirb.gameObject.SetActive (laden);
@@ -48,4 +45,22 @@ public class Pigeon : MonoBehaviour {
 	public void setLocation(Info.Location loc) {
 		letterLocation = loc;
 	}
+
+	public void addLetter(Letter l) {
+		if (_laden) {
+			Debug.Log ("Birb is carrying too much");
+		} else {
+			letterLocation = (Info.Location) l.getLocation ();
+			l.transform.SetParent (gameObject.transform);
+			setBirbLaden (true);
+			l.gameObject.SetActive (false);
+			source.PlayOneShot (attachObjectSound);
+		}
+	}
+
+	// onTriggerExit of the Cylindrical Collider
+	public bool birbHitCorrectTarget() {
+			return false;
+	}
+
 }
