@@ -24,9 +24,6 @@ public class Letter : MonoBehaviour
         models[Random.Range(0, models.Length - 1)].SetActive(true);
         displayText = GetComponentInChildren<Text>();
         locationID = Info.getRandomLocation();
-        setStartData(locationID);
-
-        locationID = Info.getRandomLocation();
 
         Canvas canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.WorldSpace;
