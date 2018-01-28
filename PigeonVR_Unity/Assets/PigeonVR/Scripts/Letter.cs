@@ -12,6 +12,21 @@ public class Letter : MonoBehaviour
     [SerializeField]
     string displayDestination;
     Text displayText;
+    [SerializeField]
+    float decayTime;
+    [SerializeField]
+    Image decayUI;
+
+   /*public IEnumerator Timer(float totalTime, int tickNum)
+   {
+      for (int i = 0; i < tickNum; i++)
+      {
+         DoUI(totalTime/(float)tickNum);
+
+         yield return new WaitForSeconds(totalTime / tickNum);
+      }
+
+   }*/
 
     // Use this for initialization
     void Start()
@@ -24,6 +39,11 @@ public class Letter : MonoBehaviour
         go.transform.SetParent(canvas.transform);
         displayText = go.AddComponent<Text>();
 
+        Image decay = (Image)Instantiate(decayUI);
+        decay.transform.SetParent(canvas.transform);
+      decay.transform.localScale = new Vector3(0.01f, 0.01f, 1);
+      decay.rectTransform.localPosition = new Vector3(0, -1, 0);
+
         Font morris = Resources.Load<Font>("MorrisRoman-Black");
         displayText.font = morris;
 
@@ -31,6 +51,8 @@ public class Letter : MonoBehaviour
         displayText.transform.localPosition = new Vector3(0, 0, 0);
         displayText.alignment = TextAnchor.UpperCenter;
         setStartData(letterID);
+
+        // StartCoroutine("Timer");
     }
 
     void setStartData(Info.Location id)
@@ -38,4 +60,9 @@ public class Letter : MonoBehaviour
         this.displayDestination = Info.getRandomSender(id);
         displayText.text = displayDestination;
     }
+
+   void DoUI(float amt) 
+   {
+      decayUI.fillAmount = amt;
+   }
 }
