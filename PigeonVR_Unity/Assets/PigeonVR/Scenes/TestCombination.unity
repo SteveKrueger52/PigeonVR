@@ -558,7 +558,7 @@ MonoBehaviour:
   lives: 3
   score: 0
   pigeonTimeout: 1
-  letterTimeout: 2
+  letterTimeout: 0.5
   pigeonGenerator: {fileID: 2087554251}
   letterGenerator: {fileID: 260097157}
 --- !u!114 &727054105
@@ -1041,7 +1041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2087554252
 MonoBehaviour:
   m_ObjectHideFlags: 0
