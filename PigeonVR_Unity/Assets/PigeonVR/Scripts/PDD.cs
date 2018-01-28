@@ -8,11 +8,11 @@ public class PDD : MonoBehaviour
 
     public Camera Player_cam;
     public GameObject trigger;
-    public Transform Player;
+    public Transform pigeon;
 
     //put a gameobject on the greater edge of each area.
     public Transform city, town, wasteland, forest, snow, desert,volcano;
-    public Quaternion pigeon_direction;
+    private Transform pigeon_direction;
     private Vector3 north;
 
     float angle;
@@ -26,7 +26,7 @@ public class PDD : MonoBehaviour
         RaycastHit city;
         if (Physics.Raycast(Player_cam.transform.position, Player_cam.transform.forward, out city, 100000))
         {
-            Debug.Log(city.transform.name);
+           // Debug.Log(city.transform.name);
         }
     }
 
@@ -47,69 +47,83 @@ public class PDD : MonoBehaviour
 
     void Pigeon_direction_detection()
     {
-        pigeon_direction = Player.rotation;
+    
 
 
-        if (city.position.x > pigeon_direction.x && desert.position.x < pigeon_direction.x)
+        if (city.position.x < pigeon_direction.position.x && desert.position.x > pigeon_direction.position.x)
         {
-            if (city.position.y > pigeon_direction.y && desert.position.y < pigeon_direction.y)
+            if (city.position.y > pigeon_direction.position.y && desert.position.y < pigeon_direction.position.y)
             {
                 zone = "DESERT";
                 //score++ for desert
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if (snow.position.x > pigeon_direction.x && city.position.x < pigeon_direction.x)
+        else if (snow.position.x < pigeon_direction.position.x && city.position.x > pigeon_direction.position.x)
         {
-            if (snow.position.y > pigeon_direction.y && city.position.y < pigeon_direction.y)
+            if (snow.position.y > pigeon_direction.position.y && city.position.y < pigeon_direction.position.y)
             {
                 zone = "CITY";
                 //score++ for city
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if(town.position.x >pigeon_direction.x && snow.position.x < pigeon_direction.x)
+        else if(town.position.x >pigeon_direction.position.x && snow.position.x < pigeon_direction.position.x)
         {  
-            if(town.position.y>pigeon_direction.y && snow.position.y < pigeon_direction.y)
+            if(town.position.y>pigeon_direction.position.y && snow.position.y < pigeon_direction.position.y)
             {
                 zone = "SNOW";
                 //score++ for snow
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if(forest.position.x > pigeon_direction.x && town.position.x < pigeon_direction.x)
+        else if(forest.position.x > pigeon_direction.position.x && town.position.x < pigeon_direction.position.x)
         {
-            if(forest.position.y > pigeon_direction.y && town.position.y < pigeon_direction.y)
+            if(forest.position.y < pigeon_direction.position.y && town.position.y > pigeon_direction.position.y)
             {
                 zone = "TOWN";
                 //score ++ for town
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if(volcano.position.x > pigeon_direction.x && forest.position.x < pigeon_direction.x)
+        else if(volcano.position.x < pigeon_direction.position.x && forest.position.x > pigeon_direction.position.x)
         {
-            if(volcano.position.y >pigeon_direction.y && forest.position.y < pigeon_direction.y)
+            if(volcano.position.y < pigeon_direction.position.y && forest.position.y > pigeon_direction.position.y)
             {
                 zone = "FOREST";
                 //score ++ for forest
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if(wasteland.position.x > pigeon_direction.x && volcano.position.x < pigeon_direction.x)
+        else if(wasteland.position.x < pigeon_direction.position.x && volcano.position.x > pigeon_direction.position.x)
         {
-            if(wasteland.position.y > pigeon_direction.y && volcano.position.y < pigeon_direction.y)
+            if(wasteland.position.y < pigeon_direction.position.y && volcano.position.y > pigeon_direction.position.y)
             {
                 zone = "VOLCANO";
                 //score ++ for volcano
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
-        else if(desert.position.x > pigeon_direction.x && wasteland.position.x < pigeon_direction.x)
+        else if(desert.position.x < pigeon_direction.position.x && wasteland.position.x > pigeon_direction.position.x)
         {
-            if(desert.position.y > pigeon_direction.y && wasteland.position.y < pigeon_direction.y)
+            if(desert.position.y > pigeon_direction.position.y && wasteland.position.y < pigeon_direction.position.y)
             {
                 zone = "WASTELAND";
                 //score ++ for wasteland
+                Debug.Log(zone);
+                Debug.Log(pigeon_direction);
             }
 
         }
@@ -124,6 +138,7 @@ public class PDD : MonoBehaviour
 
     private void OnTriggerEnter(Collider fly_pigeon)
     {
+        pigeon_direction.position = pigeon.position;
         Pigeon_direction_detection();
     }
 }
