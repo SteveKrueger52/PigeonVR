@@ -18,6 +18,14 @@
                 {
                     "text": "To the Mayor of Littleville",
                     "weight": 1
+                },
+                {
+                    "text": "You Town to Party?",
+                    "weight": 1
+                },
+                {
+                    "text": "Ain't Big enough for the both of us",
+                    "weight": 1
                 }
                 
             ]
@@ -40,6 +48,30 @@
                 {
                     "text": "Moosen in the Woodsen",
                     "weight": 1
+                },
+                {
+                    "text": "Barking up the wrong tree",
+                    "weight": 1
+                },
+                {
+                    "text": "Tree-tment",
+                    "weight": 1
+                },
+                {
+                    "text": "Make like a tree and leaf",
+                    "weight": 1
+                },
+                {
+                    "text": "Turn over a new Leaf",
+                    "weight": 1
+                },
+                {
+                    "text": "I'm Leafing you!",
+                    "weight": 1
+                },
+                {
+                    "text": "Do you believe in life after logs?",
+                    "weight": 1
                 }
             ]
         },
@@ -51,15 +83,15 @@
                     "weight": 1
                 },
                 {
-                    "text": "Sandy Sand Land",
+                    "text": "For Sandy Sand Land",
                     "weight": 1
                 },
                 {
-                    "text": "The Land with the Sand",
+                    "text": "For The Land with the Sand",
                     "weight": 1
                 },
                 {
-                    "text": "Camels Incorporated",
+                    "text": "To: Camels Incorporated",
                     "weight": 1
                 },
                 {
@@ -71,7 +103,7 @@
                     "weight": 1
                 },
                 {
-                    "text": "Da Nile ain't just a river",
+                    "text": "Dune not Open",
                     "weight": 1
                 }
             ]
@@ -106,6 +138,14 @@
                 {
                     "text": "Free Snowcones!!",
                     "weight": 1
+                },
+                {
+                    "text": "Winter is Coming",
+                    "weight": 1
+                },
+                {
+                    "text": "Ice Queen Wanted",
+                    "weight": 1
                 }
             ]
         },
@@ -131,7 +171,24 @@
                 {
                     "text": "Make Lava not War",
                     "weight": 1
+                },
+                {
+                    "text": "This Letter is fireproof",
+                    "weight": 1
+                },
+                {
+                    "text": "Business is Blowing up here!",
+                    "weight": 1
+                },
+                {
+                    "text": "It's a blast to be here!",
+                    "weight": 1
+                },
+                {
+                    "text": "Ashes to Ashes...",
+                    "weight": 1
                 }
+
             ]
         },
         {
@@ -150,15 +207,19 @@
                     "weight": 1
                 },
                 {
-                    "text": "The Apocolypse was Here",
+                    "text": "Apocolypse: Later",
                     "weight": 1
                 },
                 {
-                    "text": "Re: Forest Elves",
-                    "weight": 1
-                }, 
-                {
                     "text": "I see Skulls",
+                    "weight": 1
+                },
+                {
+                    "text": "We don't recycle",
+                    "weight": 1
+                },
+                {
+                    "text": "Population: -1",
                     "weight": 1
                 }
             ]
@@ -171,15 +232,11 @@
                     "weight": 1
                 },
                 {
-                    "text": "Pun-Tropolis",
+                    "text": "Pun-Tropolis, 600 AD",
                     "weight": 1
                 },
                 {
-                    "text": "Trust me, We'll escape from the City",
-                    "weight": 1
-                },
-                {
-                    "text": "Just a city boy,",
+                    "text": "Just a castle boy,",
                     "weight": 1
                 },
                 {
@@ -188,6 +245,18 @@
                 },
                 {
                     "text": "Important Castle Document",
+                    "weight": 1
+                },
+                {
+                    "text": "Kingdom Pun",
+                    "weight": 1
+                },
+                {
+                    "text": "Your Princess is here.",
+                    "weight": 1
+                },
+                {
+                    "text": "To King George...The Fourth?",
                     "weight": 1
                 }
             ]
