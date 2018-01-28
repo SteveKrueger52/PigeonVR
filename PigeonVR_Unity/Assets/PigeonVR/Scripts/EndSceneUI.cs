@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndSceneUI : MonoBehaviour {
-   private Text text;
+public class EndSceneUI : MonoBehaviour
+{
+    private Text text;
 
-	// Use this for initialization
-	void Start () {
-      text = GetComponent<Text>();
+    // Use this for initialization
+    void Start()
+    {
+        text = GetComponent<Text>();
 
-      text.text = "Final Score: " + StateManager.Instance.Score;
-	}
+        text.text = "Final Score: " + StateManager.Instance.Score;
+    }
 }

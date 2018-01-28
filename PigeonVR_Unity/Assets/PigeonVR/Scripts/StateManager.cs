@@ -77,7 +77,7 @@ public class StateManager : MonoBehaviour
 
     public void gameOver()
     {
-      SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndScene");
     }
 
 }
