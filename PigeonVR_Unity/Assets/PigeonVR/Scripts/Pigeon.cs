@@ -8,7 +8,7 @@ public class Pigeon : VRTK_InteractableObject
 {
     [SerializeField] private GameObject emptyBirb;
     [SerializeField] private GameObject fullBirb;
-    [SerializeField] private float despawnTime = 20f;
+    [SerializeField] private float despawnTime = 4f;
     private bool inSweetSpot = true;
 
     public bool _laden = false;
@@ -29,6 +29,7 @@ public class Pigeon : VRTK_InteractableObject
         cooTimer = Random.Range(0f, cooInterval);
         if (emptyBirb.gameObject.activeInHierarchy && fullBirb.gameObject.activeInHierarchy)
             fullBirb.gameObject.SetActive(false);
+        StartCoroutine("EveryoneDiesEventually");
     }
 
     void setBirbLaden(bool laden)
@@ -73,6 +74,12 @@ public class Pigeon : VRTK_InteractableObject
     private IEnumerator GuessIllDie()
     {
         yield return new WaitForSeconds(despawnTime);
+        Destroy(this.gameObject);
+    }
+
+    private IEnumerator EveryoneDiesEventually()
+    {
+        yield return new WaitForSeconds(despawnTime * 5);
         Destroy(this.gameObject);
     }
 }

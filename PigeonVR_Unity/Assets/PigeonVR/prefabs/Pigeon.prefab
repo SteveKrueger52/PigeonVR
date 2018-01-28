@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 54310733181013894}
   - component: {fileID: 82993295521927222}
   - component: {fileID: 65830601645885346}
-  - component: {fileID: 65834294579446602}
   m_Layer: 0
   m_Name: Pigeon
   m_TagString: Pigeon
@@ -465,18 +464,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.76, z: 0.8}
   m_Center: {x: 0, y: 0.4, z: 0}
---- !u!65 &65834294579446602
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1213177857366450}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82993295521927222
 AudioSource:
   m_ObjectHideFlags: 1

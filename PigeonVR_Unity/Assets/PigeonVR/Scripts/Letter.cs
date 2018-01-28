@@ -12,6 +12,9 @@ public class Letter : MonoBehaviour
 
     private Pigeon birbTouched;
 
+    public float decayTime;
+
+
     // Use this for initialization
     void Awake()
     {
@@ -39,6 +42,7 @@ public class Letter : MonoBehaviour
         displayText.fontSize = 20;
         displayText.alignment = TextAnchor.UpperCenter;
         setStartData(locationID);
+        StartCoroutine("Timer");
     }
 
     void setStartData(Info.Location id)
@@ -54,12 +58,12 @@ public class Letter : MonoBehaviour
             birbTouched.addLetter(this);
     }
 
-	void OnCollisionExit(Collision col) {
-		if (col.gameObject.CompareTag ("Killplane") && gameObject.activeInHierarchy) {
-			StateManager.instance.updateAfterThrow (false);
-			Destroy (this);
-		}
-	}
+    public IEnumerator Timer()
+   {
+       yield return new WaitForSeconds(decayTime);
+       Destroy(this.gameObject);
+   }
+
     public Info.Location getLocation()
     {
         return locationID;
