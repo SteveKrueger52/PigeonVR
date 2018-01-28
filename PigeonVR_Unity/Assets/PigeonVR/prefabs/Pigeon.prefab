@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4440257707771076}
   m_Layer: 0
   m_Name: Carrying
-  m_TagString: Untagged
+  m_TagString: Pigeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,10 @@ GameObject:
   - component: {fileID: 54310733181013894}
   - component: {fileID: 82993295521927222}
   - component: {fileID: 65830601645885346}
+  - component: {fileID: 65834294579446602}
   m_Layer: 0
   m_Name: Pigeon
-  m_TagString: Untagged
+  m_TagString: Pigeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,6 +465,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.76, z: 0.8}
   m_Center: {x: 0, y: 0.4, z: 0}
+--- !u!65 &65834294579446602
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213177857366450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &82993295521927222
 AudioSource:
   m_ObjectHideFlags: 1
@@ -555,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4934bbe3cd4c6d54380f72c1e4bb0628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableWhenIdle: 1
+  disableWhenIdle: 0
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
@@ -569,7 +582,7 @@ MonoBehaviour:
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
   holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
+  useOnlyIfGrabbed: 1
   pointerActivatesUseAction: 0
   useOverrideButton: 0
   allowedUseControllers: 0

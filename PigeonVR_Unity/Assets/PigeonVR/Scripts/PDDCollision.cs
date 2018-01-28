@@ -11,7 +11,7 @@ public class PDDCollision : MonoBehaviour {
     {
         var collided = collision.gameObject;
 
-        if (collided.tag == "Pigeon")
+        if (collided.CompareTag("Pigeon"))
         {
             var pigeon = collided.GetComponent<Pigeon>();
             //CHECKS FOR correct letter
