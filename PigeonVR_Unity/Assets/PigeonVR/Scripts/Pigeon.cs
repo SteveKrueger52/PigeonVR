@@ -78,7 +78,7 @@ public class Pigeon : VRTK_InteractableObject {
 
 	// onTriggerExit of the Cylindrical Collider
 	public bool birbHitCorrectTarget() {
-		if (!inSweetSpot)
+		if (!inSweetSpot || !_laden)
 			return false;
 		float wedge = 51.428f; //degrees
 		int wedgeIndex = 3;
