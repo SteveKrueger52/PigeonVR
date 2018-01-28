@@ -6,7 +6,20 @@
                 {
                     "text": "Tiny Village",
                     "weight": 1
+                },
+                {
+                    "text": "Town Town",
+                    "weight": 1
+                },
+                {
+                    "text": "Villagers need food badly",
+                    "weight": 1
+                },
+                {
+                    "text": "To the Mayor of Littleville",
+                    "weight": 1
                 }
+                
             ]
         },
         {
@@ -14,6 +27,18 @@
             "letters": [
                 {
                     "text": "Trees?",
+                    "weight": 1
+                },
+                {
+                    "text": "Re: Forest Elves",
+                    "weight": 1
+                },
+                {
+                    "text": "Lumberjacks desperately needed",
+                    "weight": 1
+                },
+                {
+                    "text": "Moosen in the Woodsen",
                     "weight": 1
                 }
             ]
@@ -40,6 +65,14 @@
                 {
                     "text": "Where's my Water?",
                     "weight": 1
+                },
+                {
+                    "text": "77 Sandy Lane",
+                    "weight": 1
+                },
+                {
+                    "text": "Da Nile ain't just a river",
+                    "weight": 1
                 }
             ]
         },
@@ -48,6 +81,30 @@
             "letters": [
                 {
                     "text": "Snowflake Central",
+                    "weight": 1
+                },
+                {
+                    "text": "I can't feel my hands, or nose. or feet",
+                    "weight": 1
+                },
+                {
+                    "text": "Fireplaces Wanted",
+                    "weight": 1
+                },
+                {
+                    "text": "The Weather outside is... Cold",
+                    "weight": 1
+                },
+                {
+                    "text": "Snow Business",
+                    "weight": 1
+                },
+                {
+                    "text": "ICE T's Mansion",
+                    "weight": 1
+                },
+                {
+                    "text": "Free Snowcones!!",
                     "weight": 1
                 }
             ]
@@ -58,6 +115,22 @@
                 {
                     "text": "Too Hot to Stop",
                     "weight": 1
+                },
+                {
+                    "text": "The floor is literally lava",
+                    "weight": 1
+                },
+                {
+                    "text": "Eruption!!!",
+                    "weight": 1
+                },
+                {
+                    "text": "27 Fire Way",
+                    "weight": 1
+                },
+                {
+                    "text": "Make Lava not War",
+                    "weight": 1
                 }
             ]
         },
@@ -67,6 +140,26 @@
                 {
                     "text": "There's nothing here?",
                     "weight": 1
+                },
+                {
+                    "text": "The Lichy Witch was here!",
+                    "weight": 1
+                },
+                {
+                    "text": "Teenage Wasteland",
+                    "weight": 1
+                },
+                {
+                    "text": "The Apocolypse was Here",
+                    "weight": 1
+                },
+                {
+                    "text": "Re: Forest Elves",
+                    "weight": 1
+                }, 
+                {
+                    "text": "I see Skulls",
+                    "weight": 1
                 }
             ]
         },
@@ -74,7 +167,27 @@
             "id": "CITY",
             "letters": [
                 {
-                    "text": "New York, New York",
+                    "text": "New Castle, New York",
+                    "weight": 1
+                },
+                {
+                    "text": "Pun-Tropolis",
+                    "weight": 1
+                },
+                {
+                    "text": "Trust me, We'll escape from the City",
+                    "weight": 1
+                },
+                {
+                    "text": "Just a city boy,",
+                    "weight": 1
+                },
+                {
+                    "text": "Rats are EVERYWHERE",
+                    "weight": 1
+                },
+                {
+                    "text": "Important Castle Document",
                     "weight": 1
                 }
             ]
