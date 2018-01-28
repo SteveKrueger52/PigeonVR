@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/PigeonVR/Scenes/TestLetterText.unity
+    guid: 4dd81ae70d0be784b9302fde28cfa398
