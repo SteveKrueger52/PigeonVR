@@ -5,18 +5,25 @@ using UnityEngine;
 
 public class Letter : MonoBehaviour
 {
+    private GameObject[] models;
+    private Info.Location locationID;
+    private string displayDestination;
+    private Text displayText;
 
-    [SerializeField]
-    Info.Location letterID;
-    //String text of where the letter needs to go
-    [SerializeField]
-    string displayDestination;
-    Text displayText;
+    private Pigeon birbTouched;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        letterID = Info.getRandomLocation();
+        models = new GameObject[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            models[i] = transform.GetChild(i).gameObject;
+            models[i].SetActive(false);
+        }
+        models[Random.Range(0, models.Length - 1)].SetActive(true);
+        displayText = GetComponentInChildren<Text>();
+        locationID = Info.getRandomLocation();
 
         Canvas canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.WorldSpace;
@@ -30,12 +37,24 @@ public class Letter : MonoBehaviour
         displayText.transform.localScale = new Vector3(0.05f, 0.05f, 1);
         displayText.transform.localPosition = new Vector3(0, 0, 0);
         displayText.alignment = TextAnchor.UpperCenter;
-        setStartData(letterID);
+        setStartData(locationID);
     }
 
     void setStartData(Info.Location id)
     {
         this.displayDestination = Info.getRandomSender(id);
         displayText.text = displayDestination;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        birbTouched = col.gameObject.GetComponent<Pigeon>();
+        if (birbTouched != null)
+            birbTouched.addLetter(this);
+    }
+
+    public Info.Location getLocation()
+    {
+        return locationID;
     }
 }
