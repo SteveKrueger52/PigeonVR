@@ -11,8 +11,8 @@ public class Pigeon : VRTK_InteractableObject
     [SerializeField] private float despawnTime = 2f;
     private bool inSweetSpot = true;
 
-    private bool _laden = false;
-    private Info.Location letterLocation;
+    public bool _laden = false;
+    public Info.Location letterLocation;
 
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip cooSound;
