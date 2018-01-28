@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PigeonVR/Scenes/TestLetterText.unity
-    guid: 4dd81ae70d0be784b9302fde28cfa398
+    path: Assets/PigeonVR/Scenes/Level.unity
+    guid: 374b07dd0a9647840ba87a960d17f09e
+  - enabled: 1
+    path: Assets/PigeonVR/Scenes/EndScene.unity
+    guid: d9d75f69cd8d0334187303f957c20cc9
