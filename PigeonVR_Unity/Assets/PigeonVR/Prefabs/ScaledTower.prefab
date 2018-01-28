@@ -5084,8 +5084,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpoints:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1298172683734464}
   ObjectsToSpawn:
   - {fileID: 1213177857366450, guid: a06217aca94424642bb75e0bbf530ee1, type: 2}
@@ -5102,8 +5100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpoints:
   - {fileID: 1518826870211372}
-  - {fileID: 0}
-  - {fileID: 0}
   ObjectsToSpawn:
   - {fileID: 1093226493984514, guid: 0949717ccd5f50f49915e2171922183b, type: 2}
 --- !u!135 &135189774297894132
