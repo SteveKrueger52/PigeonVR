@@ -14,6 +14,7 @@ public class LifeBox : MonoBehaviour {
         {
             var pigeon = collided.GetComponent<Pigeon>();
             pigeon.StartCoroutine("GuessIllDie");
+            pigeon.FlightAway();
         }
     }
 }

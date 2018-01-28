@@ -53,6 +53,11 @@ public class Pigeon : VRTK_InteractableObject
         }
     }
 
+    public void FlightAway()
+    {
+        source.PlayOneShot(throwSound);
+    }
+
     public void setLocation(Info.Location loc)
     {
         letterLocation = loc;
