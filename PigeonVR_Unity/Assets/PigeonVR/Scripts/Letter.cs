@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Letter : MonoBehaviour {
-	private GameObject[] models;
-	private Info.Location locationID;
+public class Letter : MonoBehaviour
+{
+    private GameObject[] models;
+    private Info.Location locationID;
     private string displayDestination;
     private Text displayText;
 
-	private Pigeon birbTouched;
+    private Pigeon birbTouched;
 
     // Use this for initialization
     void Awake()
     {
-		models = new GameObject[transform.childCount];
-		for (int i = 0; i < transform.childCount; i++) {
-			models [i] = transform.GetChild (i).gameObject;
-			models [i].SetActive (false);
-		}
-		models [Random.Range (0, models.Length - 1)].SetActive (true);
+        models = new GameObject[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            models[i] = transform.GetChild(i).gameObject;
+            models[i].SetActive(false);
+        }
+        models[Random.Range(0, models.Length - 1)].SetActive(true);
         displayText = GetComponentInChildren<Text>();
         locationID = Info.getRandomLocation();
         setStartData(locationID);
@@ -44,26 +46,18 @@ public class Letter : MonoBehaviour {
     void setStartData(Info.Location id)
     {
         this.displayDestination = Info.getRandomSender(id);
-		displayText.text = displayDestination;
-		Debug.Log(locationID);
+        displayText.text = displayDestination;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision col)
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-			Awake();
-        }
+        birbTouched = col.gameObject.GetComponent<Pigeon>();
+        if (birbTouched != null)
+            birbTouched.addLetter(this);
     }
 
-	void OnCollisionEnter(Collision col) {
-		birbTouched = col.gameObject.GetComponent<Pigeon> ();
-		if (birbTouched != null)
-			birbTouched.addLetter (this);
-	}
-
-	public Info.Location getLocation() {
-		return locationID;
-	}
+    public Info.Location getLocation()
+    {
+        return locationID;
+    }
 }
