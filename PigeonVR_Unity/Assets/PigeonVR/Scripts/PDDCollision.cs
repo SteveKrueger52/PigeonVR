@@ -7,7 +7,7 @@ public class PDDCollision : MonoBehaviour {
     [SerializeField]
     Info.Location location;
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         var collided = collision.gameObject;
 
@@ -19,8 +19,6 @@ public class PDDCollision : MonoBehaviour {
             {
                 StateManager.Instance.updateAfterThrow(pigeon.letterLocation == this.location);
             }
-
-            pigeon.StartCoroutine("GuessIllDie");
         }
     }
 }
