@@ -576,7 +576,7 @@ MonoBehaviour:
   usingState: 0
   emptyBirb: {fileID: 1380451811486256}
   fullBirb: {fileID: 1058366846638556}
-  despawnTime: 2
+  despawnTime: 3
   _laden: 0
   letterLocation: 0
   source: {fileID: 82993295521927222}
