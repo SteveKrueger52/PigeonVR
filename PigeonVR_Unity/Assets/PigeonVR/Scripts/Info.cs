@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Info : MonoBehaviour{
     // Location Enumeration
-    public enum Location { TOWN, FOREST, DESERT, SNOW, VOLCANO, WASTELAND, CITY}
+    public enum Location { SNOW, CITY, DESERT, WASTELAND, VOLCANO, FOREST, TOWN}
 
     [System.Serializable]
     public struct LocationDataWrapper {
