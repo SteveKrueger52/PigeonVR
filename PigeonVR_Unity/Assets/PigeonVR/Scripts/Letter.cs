@@ -53,6 +53,12 @@ public class Letter : MonoBehaviour
             birbTouched.addLetter(this);
     }
 
+	void OnCollisionExit(Collision col) {
+		if (col.gameObject.CompareTag ("Killplane") && gameObject.activeInHierarchy) {
+			StateManager.instance.updateAfterThrow (false);
+			Destroy (this);
+		}
+	}
     public Info.Location getLocation()
     {
         return locationID;
