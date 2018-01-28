@@ -34,8 +34,9 @@ public class Letter : MonoBehaviour
         Font morris = Resources.Load<Font>("MorrisRoman-Black");
         displayText.font = morris;
 
-        displayText.transform.localScale = new Vector3(0.05f, 0.05f, 1);
+        displayText.transform.localScale = new Vector3(0.01f, 0.01f, 1);
         displayText.transform.localPosition = new Vector3(0, 0, 0);
+        displayText.fontSize = 20;
         displayText.alignment = TextAnchor.UpperCenter;
         setStartData(locationID);
     }
